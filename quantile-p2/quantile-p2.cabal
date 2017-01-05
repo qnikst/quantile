@@ -1,0 +1,26 @@
+name:                quantile-p2
+version:             0.0.1
+synopsis:            Dynamic calculation of quantiles and histograms.
+-- description:         
+license:             BSD3
+license-file:        LICENSE
+author:              Alexander Vershilov
+maintainer:          alexander.vershilov@gmail.com
+copyright:           (C) 2017 Alexander Vershilov 
+category:            Statistics
+build-type:          Simple
+extra-source-files:  ChangeLog.md
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Statistics.P2.Quantile
+                       Statistics.P2.Quantile.Reference
+                       Statistics.P2.Histogram
+  other-modules:
+                       Statistics.P2.Interpolation
+  -- other-extensions:    
+  build-depends:       base >=4.9 && <4.10,
+                       mtl >=2.2 && <2.3,
+                       transformers >=0.5 && <0.6
+  hs-source-dirs:      src
+  default-language:    Haskell2010
