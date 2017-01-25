@@ -11,6 +11,7 @@ module Statistics.P2.Quantile.Reference where
 import Statistics.P2.Interpolation
 
 import Data.Foldable
+import Data.List (sort)
 import Control.Monad.Trans
 import Control.Monad.Trans.State
 
@@ -25,8 +26,9 @@ initialize :: Double -- Quantile to measure
            -> Double -- x3
            -> Double -- x4
            -> M
-initialize p x1 x2 x3 x4 x5 = M (go qs ns n's)
+initialize p y1 y2 y3 y4 y5 = M (go qs ns n's)
   where
+    [x1,x2,x3,x4,x5] = sort [y1,y2,y3,y4,y5]
     qs   = [x1,    x2,     x3,     x4, x5]  -- marker height
     ns   = [ 1,     2,     3,       4,  5]  -- marker positions
     n's  = [ 1, 1+2*p, 1+4*p,   3+2*p,  5]  -- marker desired positions
